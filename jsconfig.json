@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@models/*": ["../app/models/*"],
+      "@pages/*": ["../app/pages/*"],
+      "@assets/*": ["../app/assets/*"],
+      "@utils/*": ["./app/utils/*"],
+      "@components/*": ["../app/components/*"],
+      "@services/*": ["../app/services/*"],
+      "@common/*": ["../app/common/*"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

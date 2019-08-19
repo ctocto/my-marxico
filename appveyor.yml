@@ -1,0 +1,35 @@
+platform:
+  - x64
+
+cache:
+  - node_modules
+  - '%APPDATA%\npm-cache'
+  - '%USERPROFILE%\.electron'
+
+environment:
+  CI: false
+
+install:
+  - ps: Install-Product node 12 x64
+  - set CI=false
+  - npm install
+
+build_script:
+  - npm run release
+
+test: off
+# https://www.appveyor.com/docs/deployment/github/#configuring-in-appveyoryml
+# deploy:
+#   release: v$(appveyor_build_version)
+#   repository: ctocto/my-marxico
+#   provider: GitHub
+#   auth_token:
+#     secure: qG6kCNIpRvpCWiqcG7PuV8xSGqSraOKag3EMebJ7UHhjMLtacI+gonTprx9/j4gx
+#   draft: false
+#   prerelease: false
+#   on:
+#     APPVEYOR_REPO_TAG: true
+
+branches:
+  only:
+    - /^v\d+(\.\d+)+$/

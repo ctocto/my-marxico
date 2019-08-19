@@ -1,0 +1,5 @@
+node_modules/
+dist/
+mock/
+./webpack.config.js
+serviceWorker.js

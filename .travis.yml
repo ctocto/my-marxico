@@ -1,0 +1,49 @@
+osx_image: xcode10.3
+
+dist: trusty
+sudo: required
+
+language: node_js
+node_js: "12"
+
+env:
+  global:
+    - ELECTRON_CACHE=$HOME/.cache/electron
+    - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+    - CI=false
+
+os:
+  - linux
+  - osx
+
+cache:
+  directories:
+  - node_modules
+  - $HOME/.cache/electron
+  - $HOME/.cache/electron-builder
+  - $HOME/.npm/_prebuilds
+
+install:
+  - npm install
+
+script:
+  - npm run release
+# https://docs.travis-ci.com/user/deployment#conditional-releases-with-on
+# deploy:
+#   provider: releases
+#   api_key:
+#     secure: 
+#   file_glob: true
+#   file:
+#     - "release/**.zip"
+#     - "release/**.dmg"
+#     - "release/**.exe"
+#    - "release/**.yml"
+#  skip_cleanup: true
+#  on:
+#    repo: ctocto/my-marxico
+#    tags: true
+
+branches:
+  only:
+    - /^v\d+(\.\d+)+$/

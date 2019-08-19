@@ -1,0 +1,65 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "createElement"
+    },
+    "import/resolver": {
+      "alias": [
+        ["@assets", "./app/assets"],
+        ["@pages", "./app/pages"],
+        ["@models", "./app/models"],
+        ["@components", "./app/components"],
+        ["@utils", "./app/utils"],
+        ["@common", "./app/common"],
+        ["@services", "./app/services"]
+      ]
+    }
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": [0],
+    "react/react-in-jsx-scope": [0],
+    "no-const-assign": "warn",
+    "no-this-before-super": "warn",
+    "no-undef": "warn",
+    "no-continue": "off",
+    "no-unreachable": "warn",
+    "no-unused-vars": ["warn", {
+      "argsIgnorePattern": "^_",
+      "caughtErrors": "none",
+      "ignoreRestSiblings": true,
+      "args": "after-used"
+    }],
+    "constructor-super": "warn",
+    "valid-typeof": "warn",
+    "quotes": [
+      2,
+      "single"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-param-reassign": ["error", { "props": false }],
+    "react/require-default-props": ["warn", { "forbidDefaultForRequired": false }]
+  },
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ]
+}
