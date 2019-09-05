@@ -4,11 +4,11 @@
  * @Date: 2019-08-19 13:34:26
  *
  * @Last Modified by: hefan
- * @Last Modified time: 2019-08-19 19:14:12
+ * @Last Modified time: 2019-09-05 18:54:59
  */
-
 import ReactMarkdown from 'react-markdown/with-html'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { ThemeContext } from '@common/themeContext'
 import styles from './style.module.less'
 import Editor from './editor'
 import CodeBlock from './code-block'
@@ -63,6 +63,7 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
 function Markdown() {
   const [markdownSrc, setMarkdownSrc] = useState(initialSource)
   const [htmlMode] = useState('raw')
+  const { theme } = useContext(ThemeContext)
 
   const handleMarkdownChange = (evt) => {
     setMarkdownSrc(evt.target.value)
@@ -74,20 +75,23 @@ function Markdown() {
 
   return (
     <div className={styles.Markdown}>
-      <div className={`editor-pane ${styles.Markdown__editorPane}`}>
-        {/* <MarkdownControls onChange={this.handleControlsChange} mode={this.state.htmlMode} /> */}
+      <div className={`${styles.Markdown__editorPane} markwon-edit-pane theme__${theme}`}>
+        <div className="editor-pane">
+          {/* <MarkdownControls onChange={this.handleControlsChange} mode={this.state.htmlMode} /> */}
 
-        <Editor value={markdownSrc} onChange={handleMarkdownChange} />
+          <Editor value={markdownSrc} onChange={handleMarkdownChange} />
+        </div>
       </div>
-
-      <div className={`result-pane ${styles.Markdown__resultPane}`}>
-        <ReactMarkdown
-          className="result"
-          source={markdownSrc}
-          skipHtml={htmlMode === 'skip'}
-          escapeHtml={htmlMode === 'escape'}
-          renderers={{ code: CodeBlock }}
-        />
+      <div className={styles.Markdown__resultPane}>
+        <div className="result-pane">
+          <ReactMarkdown
+            className="result"
+            source={markdownSrc}
+            skipHtml={htmlMode === 'skip'}
+            escapeHtml={htmlMode === 'escape'}
+            renderers={{ code: CodeBlock }}
+          />
+        </div>
       </div>
     </div>
   )

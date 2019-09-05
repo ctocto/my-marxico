@@ -4,19 +4,22 @@
  * @Date: 2019-08-19 10:33:43
  *
  * @Last Modified by: hefan
- * @Last Modified time: 2019-08-19 15:24:14
+ * @Last Modified time: 2019-09-05 16:08:36
  */
+import { useContext } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from '@common/themeContext'
 import CodeMirror from './codemirror'
 
 function Editor(props) {
+  const themeContext = useContext(ThemeContext)
   const { value, onChange } = props
 
   return (
     <form className="editor pure-form">
       <CodeMirror
         mode="markdown"
-        theme="monokai"
+        theme={themeContext.theme}
         lineWrapping
         value={value}
         onChange={onChange}

@@ -4,24 +4,16 @@
  * @Date: 2019-08-19 11:00:06
  *
  * @Last Modified by: hefan
- * @Last Modified time: 2019-08-19 16:35:20
+ * @Last Modified time: 2019-09-05 16:40:19
  */
 import {
   useState, useRef, useEffect, useCallback,
 } from 'react'
 import PropTypes from 'prop-types'
+import msngr from 'msngr'
 // eslint-disable-next-line import/no-unresolved
 import CodeMirror from 'CodeMirror'
 
-const IS_MOBILE = typeof navigator === 'undefined' || (
-  navigator.userAgent.match(/Android/i)
-    || navigator.userAgent.match(/webOS/i)
-    || navigator.userAgent.match(/iPhone/i)
-    || navigator.userAgent.match(/iPad/i)
-    || navigator.userAgent.match(/iPod/i)
-    || navigator.userAgent.match(/BlackBerry/i)
-    || navigator.userAgent.match(/Windows Phone/i)
-)
 
 let editor = null
 
@@ -45,7 +37,7 @@ function CodeMirrorEditor(props) {
     if (onChange) {
       onChange({ target: { value: editorValue } })
     }
-    // console.log(4567, editor.getValue() !== value, isControlled, value)
+    // console.log(4567, editor.getValue() !== value, value)
     // if (editor.getValue() !== value) {
     //   if (isControlled) {
     //     editor.setValue(value)
@@ -57,10 +49,14 @@ function CodeMirrorEditor(props) {
 
 
   useEffect(() => {
-    const isTextArea = forceTextArea || IS_MOBILE
+    const isTextArea = forceTextArea
     if (!isTextArea) {
       editor = CodeMirror.fromTextArea(editorEl.current, props)
       editor.on('change', handleChange)
+      msngr('window-reseze').on(() => {
+        // console.log('window-reseze')
+        editor.refresh()
+      })
     }
   }, [forceTextArea])
 

@@ -64,7 +64,7 @@
 .cm-s-3024-night .CodeMirror-activeline-background { background: #2F2F2F; }
 .cm-s-3024-night .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
 
-//abcdef
+/* //abcdef */
 .cm-s-abcdef.CodeMirror { background: #0f0f0f; color: #defdef; }
 .cm-s-abcdef div.CodeMirror-selected { background: #515151; }
 .cm-s-abcdef .CodeMirror-line::selection, .cm-s-abcdef .CodeMirror-line > span::selection, .cm-s-abcdef .CodeMirror-line > span > span::selection { background: rgba(56, 56, 56, 0.99); }
