@@ -4,10 +4,10 @@
  * @Date: 2019-08-19 11:00:06
  *
  * @Last Modified by: hefan
- * @Last Modified time: 2019-09-05 16:40:19
+ * @Last Modified time: 2019-09-06 19:41:41
  */
 import {
-  useState, useRef, useEffect, useCallback,
+  useRef, useEffect, useCallback,
 } from 'react'
 import PropTypes from 'prop-types'
 import msngr from 'msngr'
@@ -22,7 +22,6 @@ function CodeMirrorEditor(props) {
     value, readOnly, defaultValue, onChange, textAreaClassName, forceTextArea,
   } = props
   const editorEl = useRef(null)
-  // const [isControlled] = useState(Boolean(value))
 
   const handleChange = useCallback(() => {
     if (!editor) {
@@ -37,16 +36,7 @@ function CodeMirrorEditor(props) {
     if (onChange) {
       onChange({ target: { value: editorValue } })
     }
-    // console.log(4567, editor.getValue() !== value, value)
-    // if (editor.getValue() !== value) {
-    //   if (isControlled) {
-    //     editor.setValue(value)
-    //   } else {
-    //     props.value = value
-    //   }
-    // }
-  }, [value])
-
+  }, [onChange, value])
 
   useEffect(() => {
     const isTextArea = forceTextArea
@@ -57,8 +47,12 @@ function CodeMirrorEditor(props) {
         // console.log('window-reseze')
         editor.refresh()
       })
+
+      msngr('markdown-set-option').on((theme) => {
+        editor.setOption('theme', theme)
+      })
     }
-  }, [forceTextArea])
+  }, [forceTextArea, handleChange, props])
 
   useEffect(() => {
     if (!editor) {

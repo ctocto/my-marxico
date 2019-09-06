@@ -4,7 +4,7 @@
  * @Date: 2019-08-19 13:34:26
  *
  * @Last Modified by: hefan
- * @Last Modified time: 2019-09-05 18:54:59
+ * @Last Modified time: 2019-09-06 18:59:30
  */
 import ReactMarkdown from 'react-markdown/with-html'
 import { useState, useContext } from 'react'
@@ -82,7 +82,7 @@ function Markdown() {
           <Editor value={markdownSrc} onChange={handleMarkdownChange} />
         </div>
       </div>
-      <div className={styles.Markdown__resultPane}>
+      <div className={`${styles.Markdown__resultPane} markwon-result-pane`}>
         <div className="result-pane">
           <ReactMarkdown
             className="result"

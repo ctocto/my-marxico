@@ -4,8 +4,9 @@
  * @Date: 2019-08-19 18:48:19
  *
  * @Last Modified by: hefan
- * @Last Modified time: 2019-09-05 16:41:01
+ * @Last Modified time: 2019-09-06 19:17:35
  */
+import React from 'react'
 import msngr from 'msngr'
 import ThemeMenu from '@components/ThemeMenu'
 import styles from './style.module.less'
@@ -19,12 +20,6 @@ function Command() {
       msngr('window-reseze').emit()
     }, 300)
   }
-
-  const handleSwitchTheme = () => {
-    // const theme = document.defaultView.getComputedStyle(document.querySelector('.CodeMirror')).backgroundColor
-    // document.getElementById('root').style.backgroundColor = theme
-  }
-
 
   return (
     <nav className={styles.Command}>
@@ -44,4 +39,4 @@ function Command() {
   )
 }
 
-export default Command
+export default React.memo(Command)

@@ -54,13 +54,16 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-param-reassign": ["error", { "props": false }],
     "react/require-default-props": ["warn", { "forbidDefaultForRequired": false }],
-    "max-len": ["warn", { "code": 100 }]
+    "max-len": ["warn", { "code": 100 }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "parser": "babel-eslint",
   "extends": "airbnb",
   "plugins": [
     "react",
     "jsx-a11y",
-    "import"
+    "import",
+    "react-hooks"
   ]
 }
