@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 // https://github.com/arackaf/customize-cra/blob/master/api.md
 const path = require('path')
 const {
@@ -7,6 +8,7 @@ const {
   addWebpackAlias,
   addLessLoader,
   addWebpackExternals,
+  fixBabelImports,
 } = require('customize-cra')
 
 const addWebpackTarget = target => (config) => {
@@ -39,6 +41,11 @@ module.exports = {
       '@utils': path.resolve(__dirname, 'app/utils'),
       '@common': path.resolve(__dirname, 'app/common'),
       '@services': path.resolve(__dirname, 'app/services'),
+    }),
+    fixBabelImports('import', {
+      libraryName: 'antd',
+      libraryDirectory: 'es',
+      style: 'css',
     }),
   ),
   paths(paths, env) {

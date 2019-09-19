@@ -1,3 +1,7 @@
 {
-  "plugins": ["react-require", "@babel/plugin-proposal-export-default-from"]
+  "plugins": [
+    "react-require",
+    "@babel/plugin-proposal-export-default-from",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }]
+  ]
 }

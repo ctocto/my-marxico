@@ -4,12 +4,16 @@
  * @Date: 2019-08-19 18:48:19
  *
  * @Last Modified by: hefan
- * @Last Modified time: 2019-09-06 19:17:35
+ * @Last Modified time: 2019-09-11 13:24:34
  */
 import React from 'react'
 import msngr from 'msngr'
 import ThemeMenu from '@components/ThemeMenu'
+import CreateNewFile from './CreateNewFile'
+import SaveFile from './SaveFile'
 import styles from './style.module.less'
+import UserSetting from './UserSetting'
+import DocumentList from './DocumentList'
 
 
 function Command() {
@@ -23,16 +27,26 @@ function Command() {
 
   return (
     <nav className={styles.Command}>
-      <ul>
+      <ul className={styles.Command__btnGroups}>
         <li>
-          <button type="button">home</button>
+          <DocumentList />
         </li>
         <li>
-          {/* <button type="button" onClick={handleSwitchTheme}>theme</button> */}
           <ThemeMenu />
         </li>
         <li>
           <button type="button" onClick={handleFullScreen}>full</button>
+        </li>
+      </ul>
+      <ul className={styles.Command__btnGroups}>
+        <li>
+          <SaveFile />
+        </li>
+        <li>
+          <CreateNewFile />
+        </li>
+        <li>
+          <UserSetting />
         </li>
       </ul>
     </nav>

@@ -5,11 +5,19 @@
   left: 0;
   right: 0;
   z-index: 10;
+  display: flex;
   :global {
     li {
       list-style: none;
       display: inline-block;
     }
+  }
+
+  &__btnGroups {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    // padding: 0 20px;
   }
 }
 :global {
@@ -22,6 +30,15 @@
       padding: 0;
       visibility: hidden;
       height: 0;
+    }
+    
+  }
+}
+:global(.fullScreen) {
+  .Command {
+    justify-content: flex-end;
+    &__btnGroups {
+      flex: none;
     }
   }
 }

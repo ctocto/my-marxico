@@ -56,7 +56,8 @@
     "react/require-default-props": ["warn", { "forbidDefaultForRequired": false }],
     "max-len": ["warn", { "code": 100 }],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "no-shadow": ["warn", { "allow": ["done"] }]
   },
   "parser": "babel-eslint",
   "extends": "airbnb",

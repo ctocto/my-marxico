@@ -1,9 +1,19 @@
 export default {
   namespace: 'app',
 
-  state: 'hello',
+  state: {
+    documentListDrawer: false,
+    settingDrawer: false,
+  },
 
   effects: {},
 
-  reducers: {},
+  reducers: {
+    toggleDrawer(state, { payload }) {
+      return {
+        ...state,
+        ...payload,
+      }
+    },
+  },
 }

@@ -1,4 +1,5 @@
 import dva from 'dva'
+import createLogger from 'dva-logger'
 
 const createHistory = require('history').createHashHistory
 
@@ -9,7 +10,7 @@ const app = dva({
 
 
 // 2. Plugins
-// app.use({});
+app.use(createLogger())
 
 // 3. Model
 app.model(require('./models/app').default)

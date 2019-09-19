@@ -49,7 +49,7 @@ const dynamicWrapper = (app, models, component) => dynamic({
 export const getRouterData = (app) => {
   const routerConfig = {
     '/': {
-      component: dynamicWrapper(app, [], () => import('@pages/Home/Home')),
+      component: dynamicWrapper(app, ['file', 'setting', 'documents'], () => import('@pages/Home/Home')),
     },
     '/demo/counter': {
       component: dynamicWrapper(app, ['Demo/counter'], () => import('@pages/Demo/CounterSage')),

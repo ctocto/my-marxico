@@ -4,13 +4,16 @@
  * @Date: 2019-08-19 10:33:43
  *
  * @Last Modified by: hefan
- * @Last Modified time: 2019-09-06 19:44:04
+ * @Last Modified time: 2019-09-19 09:36:07
  */
-import { useContext, useEffect } from 'react'
+import {
+  useContext, useEffect,
+} from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from '@common/themeContext'
 import msngr from 'msngr'
 import CodeMirror from './codemirror'
+
 
 function Editor(props) {
   const { theme } = useContext(ThemeContext)
@@ -28,6 +31,10 @@ function Editor(props) {
         lineWrapping
         value={value}
         onChange={onChange}
+        dragDrop
+        allowDropFileTypes={['image/jpeg', 'image/png', 'image/gif']}
+        autofocus
+        extraKeys={{ 'Alt-F': 'findPersistent', 'Ctrl-S': 'save' }}
       />
     </form>
   )

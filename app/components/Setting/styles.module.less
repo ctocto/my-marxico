@@ -1,0 +1,35 @@
+@bg: #e6e5e5;
+.cardContainer {
+  :global {
+    .rc-dialog-header {
+      background: @bg;
+    }
+    .rc-dialog-body {
+      padding: 0;
+    }
+    .ant-tabs-card > .ant-tabs-content {
+      height: 120px;
+      margin-top: -16px;
+    }
+    .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane {
+      background: #fff;
+      padding: 16px;
+    }
+    .ant-tabs-card > .ant-tabs-bar {
+      border-color: #fff;
+      background: @bg;
+      padding-top: 20px;
+    }
+    .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+      border-color: transparent;
+      background: transparent;
+    }
+    .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+      border-color: #fff;
+      background: #fff;
+    }
+    .ant-tabs-nav {
+      margin-left: 20px;
+    }
+  }
+}
