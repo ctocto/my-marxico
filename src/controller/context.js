@@ -11,6 +11,7 @@ class Context {
     const db = new Nedb({
       filename: path.join(USERDATA_PATH, `${name}.db`),
       autoload: true,
+      timestampData: true,
     })
 
     this.dataBase.set(name, db)

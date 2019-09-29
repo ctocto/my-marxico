@@ -4,7 +4,7 @@
  * @Date: 2019-09-17 19:38:36
  *
  * @Last Modified by: hefan
- * @Last Modified time: 2019-09-19 11:00:50
+ * @Last Modified time: 2019-09-19 19:41:27
  */
 
 const context = require('../context')
@@ -12,7 +12,7 @@ const context = require('../context')
 const db = context.getDataBase('document')
 
 exports.getDocList = () => new Promise((resolve, reject) => {
-  db.find({}).projection({ title: 1, tag: 1, category: 1 }).sort({ _id: -1 }).exec((err, docs) => {
+  db.find({}).projection({ title: 1, tag: 1, category: 1 }).sort({ updateAt: -1 }).exec((err, docs) => {
     if (!err) {
       resolve(docs)
     }
